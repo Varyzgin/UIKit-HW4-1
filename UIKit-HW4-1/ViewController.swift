@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     let contentHeader = "Black & White"
     let contentDescription = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore"
     
-    let margin : CGFloat = 30
+    let margin : CGFloat = 20
     enum textType { case hugeHeader, megaHeader, header, description }
     enum colorScheme { case black, white, gray, green }
     
@@ -109,48 +109,47 @@ class ViewController: UIViewController {
     func setupConstraints() {
         let profileImageViewSize : CGFloat = 63;
         NSLayoutConstraint.activate([
-            profileImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: margin),
+            profileImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 1.5 * margin),
             profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             profileImageView.heightAnchor.constraint(equalToConstant: profileImageViewSize),
             profileImageView.widthAnchor.constraint(equalToConstant: profileImageViewSize),
             
-            nameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: margin / 3),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin / 3),
-            nameLabel.bottomAnchor.constraint(equalTo: profileImageView.centerYAnchor, constant: -2),
+            nameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 2/3 * margin),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -2/3 * margin),
+            nameLabel.bottomAnchor.constraint(equalTo: profileImageView.centerYAnchor, constant: -3),
             
-            surnameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: margin / 3),
-            surnameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin / 3),
-            surnameLabel.topAnchor.constraint(equalTo: profileImageView.centerYAnchor, constant: 2),
+            surnameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 2/3 * margin),
+            surnameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -2/3 * margin),
+            surnameLabel.topAnchor.constraint(equalTo: profileImageView.centerYAnchor, constant: 3),
             
-            contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 2/3 * margin),
-            contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -2/3 * margin),
-            contentView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 2/3 * margin),
+            contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: margin),
+            contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -margin),
+            contentView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: margin),
             
-            photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2/3 * margin),
-            photoImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2/3 * margin),
-            photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2/3 * margin),
+            photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+            photoImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin),
             photoImageView.heightAnchor.constraint(equalTo: photoImageView.widthAnchor, multiplier: 3/4),
             
-            photoTitleLabel.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor, constant: 2/3 * margin),
-            photoTitleLabel.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: -2/3 * margin),
-            photoTitleLabel.bottomAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: -2/3 * margin),
+            photoTitleLabel.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor, constant: margin),
+            photoTitleLabel.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: -margin),
+            photoTitleLabel.bottomAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: -margin),
             
-            contentHeaderLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4/3 * margin),
-            contentHeaderLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4/3 * margin),
-            contentHeaderLabel.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 2/3 * margin),
+            contentHeaderLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2 * margin),
+            contentHeaderLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2 * margin),
+            contentHeaderLabel.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: margin),
             
-            contentDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2/3 * margin),
-            contentDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2/3 * margin),
-            contentDescriptionLabel.topAnchor.constraint(equalTo: contentHeaderLabel.bottomAnchor, constant: 1/3 * margin),
+            contentDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+            contentDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            contentDescriptionLabel.topAnchor.constraint(equalTo: contentHeaderLabel.bottomAnchor, constant: 1/2 * margin),
             
-            nextButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2/3 * margin),
-            nextButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2/3 * margin),
-            nextButton.topAnchor.constraint(equalTo: contentDescriptionLabel.bottomAnchor, constant: 2/3 * margin),
-            nextButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2/3 * margin),
-            nextButton.heightAnchor.constraint(equalToConstant: 3/2 * margin),
+            nextButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+            nextButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            nextButton.topAnchor.constraint(equalTo: contentDescriptionLabel.bottomAnchor, constant: margin),
+            nextButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -margin),
+            nextButton.heightAnchor.constraint(equalToConstant: 2 * margin),
             
-            contentView.bottomAnchor.constraint(equalTo: nextButton.bottomAnchor, constant: 2/3 * margin)
+            contentView.bottomAnchor.constraint(equalTo: nextButton.bottomAnchor, constant: margin)
         ])
     }
 }
-
